@@ -11,9 +11,8 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="SALICRU_API_EMS.vi" Type="VI" URL="../SALICRU_API_EMS.vi"/>
-		<Item Name="SALICRUPythonFile(SubVI).vi" Type="VI" URL="../SALICRUPythonFile(SubVI).vi"/>
-		<Item Name="Untitled 1 (SubVI).vi" Type="VI" URL="../Untitled 1 (SubVI).vi"/>
+		<Item Name="MAIN_SALICRU_API_EMS.vi" Type="VI" URL="../MAIN_SALICRU_API_EMS.vi"/>
+		<Item Name="SALICRUAPI.lvlib" Type="Library" URL="../SALICRUAPI.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
