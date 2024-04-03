@@ -1,6 +1,4 @@
 import SALICRUAPI
-import time
-import datetime
 import requests
 
 # SALICRU API PYTHON WRAPPER
@@ -34,7 +32,13 @@ def get_plant_info():
     # endpoint
     url = "plants/me"
     # Request
-    response = requests.get(api.API+url, headers=api.headers)
+    try:
+        response = requests.get(api.API+url, headers=api.headers)
+        if(response.status_code != 200):
+            raise ConnectionError("Error en la petición: "+str(response.status_code))
+    except ConnectionError as e:
+        print(e)
+        return
     return response.json()
 
 # Obtener la ultima medida
