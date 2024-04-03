@@ -43,11 +43,7 @@ def get_plant_info():
 
 # Obtener la ultima medida
 def get_last_read():
-    return api.get_last_read()
-
-def get_multiple_reads(api, iniTime, toTime):
-    return api.get_multiple_reads(iniTime, toTime)
-
+    return api.realTime()
 
 # MUST DO UPDATE TO GET THE LAST READ
 # Get timestamp from lastread

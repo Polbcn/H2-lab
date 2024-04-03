@@ -41,7 +41,7 @@ class SALICRUAPI:
 
     def update(self):
         try:
-            lastread = self.get_last_read()
+            lastread = self.realTime()
             self.timestamp = lastread["timestamp"]
             self.powerDailyGeneration = lastread["powerDailyGeneration"]
             self.powerDailyConsumption = lastread["powerDailyConsumption"]
@@ -55,41 +55,10 @@ class SALICRUAPI:
             print(e)
             return # En caso de error devuelvo void
         
-     
-    def get_last_read(self):
-        if self.headers == {}:
-            self.connect_API()
-        # Medidas de tiempo
-        iniTime = int(time.time()-6000000)
-        toTime = int(time.time()+6*60*1000)
-        # Petición
-        url = f"measures/{self.plantId}/minute/{iniTime}/{toTime}"
+    def realTime(self):
+        url = "plants/"+str(self.plantId)+"/realTime"
         response = requests.get(self.API+url, headers=self.headers)
-        try:
-            if(response.status_code == 200):
-                # Ultima medida
-                actualMeasure = response.json()[len(response.json())-1]
-                # Marca de tiempo de la ultima medida
-                timestamp = actualMeasure["timestamp"]
-                date = datetime.datetime.fromtimestamp(timestamp)
-                # Devolver ultima medida en json
-                return actualMeasure
-            else:
-                raise ConnectionError("Error en la petición: "+str(response.status_code))
-        except ConnectionError as e:
-            print(e)
-            return # En caso de error devuelvo void
-
-    def get_multiple_reads(self, iniTime, toTime):
-        if self.headers == {}:
-            self.connect_API()
-        # Petición
-        url = f"measures/{self.plantId}/minute/{iniTime}/{toTime}"
-        response = requests.get(self.API+url, headers=self.headers)
-        try:
-            # Devolver todas las medidas en json
-            if (response.status_code == 200): return response.json()
-            else: raise ConnectionError("Error en la petición: " + str(response.status_code))
-        except ConnectionError as e:
-            print(e)
-            return # En caso de error devuelvo void
+        if(response.status_code != 200):
+            raise ConnectionError("Error en la petición: "+str(response.status_code))
+        else:
+            return response.json()

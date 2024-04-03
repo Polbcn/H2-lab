@@ -2,15 +2,16 @@ from SALICRUWRAPPER import *
 import datetime
 import time
 
+
+
 # Main
 if __name__ == '__main__':
     print("Starting API connection")
     init()
-
     print("starting reading")
     while(True):
         update()
-        print(f"timestamp: {datetime.datetime.fromtimestamp(get_timestamp())}")
+        print(f"timestamp: {datetime.datetime.fromtimestamp(get_timestamp()/1000)}")
         print(f"powerDailyGeneration: {get_powerDailyGeneration()}")
         print(f"powerDailyConsumption: {get_powerDailyConsumption()}")
         print(f"powerSelfConsumption: {get_powerSelfConsumption()}")
