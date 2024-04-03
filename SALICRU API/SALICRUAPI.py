@@ -16,6 +16,15 @@ class SALICRUAPI:
         self.plantId = plantId
         self.token = ""
         self.headers = {}
+        # Init values
+        self.timestamp = 0
+        self.powerDailyConsumption = 0
+        self.powerDailyGeneration = 0
+        self.powerSelfConsumption = 0
+        self.powerBattery = 0
+        self.stateOfCharge = 0
+        self.irr = 0
+        self.inverterAlarms = []
 
     # Functions
     # Connect API
@@ -40,23 +49,19 @@ class SALICRUAPI:
 
 
     def update(self):
-        try:
-            lastread = self.realTime()
-            self.timestamp = lastread["timestamp"]
-            self.powerDailyGeneration = lastread["powerDailyGeneration"]
-            self.powerDailyConsumption = lastread["powerDailyConsumption"]
-            self.powerSelfConsumption = lastread["powerSelfConsumption"]
-            self.inverterAlarms = lastread["inverterAlarms"]
-            self.powerBattery = lastread["powerBattery"]
-            self.stateOfCharge = lastread["stateOfCharge"]
-            self.irr = lastread["irr"]
-            print("Datos actualizados correctamente")
-        except ConnectionError as e:
-            print(e)
-            return # En caso de error devuelvo void
+        lastread = self.realTime()
+        self.timestamp = lastread["timestamp"]
+        self.powerDailyGeneration = lastread["powerDailyGeneration"]
+        self.powerDailyConsumption = lastread["powerDailyConsumption"]
+        self.powerSelfConsumption = lastread["powerSelfConsumption"]
+        self.inverterAlarms = lastread["inverterAlarms"]
+        self.powerBattery = lastread["powerBattery"]
+        self.stateOfCharge = lastread["stateOfCharge"]
+        self.irr = lastread["irr"]
+        print("Datos actualizados correctamente")
         
     def realTime(self):
-        url = "plants/"+str(self.plantId)+"/realTime"
+        url = "plants/"+self.plantId+"/realTime"
         response = requests.get(self.API+url, headers=self.headers)
         if(response.status_code != 200):
             raise ConnectionError("Error en la petición: "+str(response.status_code))
