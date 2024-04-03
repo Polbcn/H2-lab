@@ -11,11 +11,7 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="ELY (SubVI).vi" Type="VI" URL="../ELY (SubVI).vi"/>
-		<Item Name="read_s7_1200 (SubVI).vi" Type="VI" URL="../read_s7_1200 (SubVI).vi"/>
-		<Item Name="Reads_to_map(SubVI).vi" Type="VI" URL="../Reads_to_map(SubVI).vi"/>
-		<Item Name="Reads_to_map_2(SubVI).vi" Type="VI" URL="../Reads_to_map_2(SubVI).vi"/>
-		<Item Name="Reads_to_map_3(SubVI).vi" Type="VI" URL="../Reads_to_map_3(SubVI).vi"/>
+		<Item Name="S7-1200_OPCUA.lvlib" Type="Library" URL="../S7-1200_OPCUA.lvlib"/>
 		<Item Name="S7_1200.vi" Type="VI" URL="../S7_1200.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
