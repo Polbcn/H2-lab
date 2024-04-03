@@ -19,5 +19,5 @@ if __name__ == '__main__':
         print(get_all_values())
         print(get_inverterAlarms())
         print(realTime())
-        time.sleep(1000)
+        time.sleep(60000)
     
