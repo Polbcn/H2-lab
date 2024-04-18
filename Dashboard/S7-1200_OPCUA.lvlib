@@ -5,6 +5,7 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="ELY (SubVI).vi" Type="VI" URL="../S7-1200 OPC UA/ELY (SubVI).vi"/>
 	<Item Name="ELY_estado_analyzer (SubVI).vi" Type="VI" URL="../S7-1200 OPC UA/ELY_estado_analyzer (SubVI).vi"/>
+	<Item Name="nodos(SubVI).vi" Type="VI" URL="../S7-1200 OPC UA/nodos(SubVI).vi"/>
 	<Item Name="read_s7_1200 (SubVI).vi" Type="VI" URL="../S7-1200 OPC UA/read_s7_1200 (SubVI).vi"/>
 	<Item Name="Reads_to_map(SubVI).vi" Type="VI" URL="../S7-1200 OPC UA/Reads_to_map(SubVI).vi"/>
 	<Item Name="Reads_to_map_2(SubVI).vi" Type="VI" URL="../S7-1200 OPC UA/Reads_to_map_2(SubVI).vi"/>
